@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Required to transpile ES6 syntax to CommonJS -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- 
+        Use this CDN links in production
+            <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+            <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+            height: 80vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        // React Functional Component Example
+        function Counter(props) {
+            let [count, setCount] = React.useState(0);
+
+            return <div>
+                <button onClick={() => setCount(count + 1)} className="button">Click Me {count}</button>
+            </div>;
+        }
+
+        // React Class Component Example
+        class App extends React.Component {
+            render() {
+                return <div>
+                    <h1 className="title">Hello world!</h1>
+                    <p className="subtitle">this text is rendered using react</p>
+                    <Counter />
+                </div>
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>
